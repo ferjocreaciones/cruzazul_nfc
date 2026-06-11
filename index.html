@@ -298,53 +298,43 @@ target="_blank">
 
 <script>
 
-const players={
+const players = {
 
-palavecino:{
+    palavecino: {
+        name: "Agustín Palavecino",
+        image: "palavecino.jpg",
+        instagram: "https://www.instagram.com/agusspalavecino/?hl=es",
+        highlights: "https://www.youtube.com/results?search_query=palavecino+cruz+azul",
+        stats: "https://www.google.com/search?q=palavecino+estadisticas",
+        titles: "https://www.google.com/search?q=palavecino+titulos"
+    },
 
-name:"Agustín Palavecino",
-image:"palavecino.jpg",
-
-instagram:"https://www.instagram.com/agusspalavecino/?hl=es",
-
-highlights:"https://www.youtube.com/results?search_query=palavecino+cruz+azul",
-
-stats:"https://www.google.com/search?q=palavecino+estadisticas",
-
-titles:"https://www.google.com/search?q=palavecino+titulos"
-
-},
-
-rotondi:{
-
-name:"Carlos Rodolfo Rotondi",
-image:"rotondi.jpg",
-
-instagram:"https://www.instagram.com/rodorotondi/?hl=es",
-
-highlights:"https://www.youtube.com/results?search_query=rotondi+cruz+azul",
-
-stats:"https://www.google.com/search?q=rotondi+estadisticas",
-
-titles:"https://www.google.com/search?q=rotondi+titulos"
-
-}
+    rotondi: {
+        name: "Carlos Rodolfo Rotondi",
+        image: "rotondi.jpg",
+        instagram: "https://www.instagram.com/rodorotondi/?hl=es",
+        highlights: "https://www.youtube.com/results?search_query=rotondi+cruz+azul",
+        stats: "https://www.google.com/search?q=rotondi+estadisticas",
+        titles: "https://www.google.com/search?q=rotondi+titulos"
+    }
 
 };
 
-const params=new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
-const playerKey=params.get("player");
+const playerKey = (params.get("player") || "").toLowerCase();
 
-const player=players[playerKey] || players["palavecino"];
+const player = players[playerKey] || players["palavecino"];
 
-document.getElementById("player-img").src=player.image;
-document.getElementById("card-name").innerText=player.name;
-document.getElementById("premium-title").innerText="✨ " + player.name + " Edition";
-document.getElementById("btn-instagram").href=player.instagram;
-document.getElementById("btn-highlights").href=player.highlights;
-document.getElementById("btn-stats").href=player.stats;
-document.getElementById("btn-titulos").href=player.titles;
+document.getElementById("player-img").src = player.image;
+document.getElementById("card-name").innerText = player.name;
+document.getElementById("premium-title").innerText =
+    "✨ " + player.name + " Edition";
+
+document.getElementById("btn-instagram").href = player.instagram;
+document.getElementById("btn-highlights").href = player.highlights;
+document.getElementById("btn-stats").href = player.stats;
+document.getElementById("btn-titulos").href = player.titles;
 
 </script>
 
