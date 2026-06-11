@@ -2,121 +2,91 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Cruz Azul NFC</title>
-
+<meta name="theme-color" content="#003DA5">
+<meta name="description" content="Edición NFC Jugador Cruz Azul">
 <style>
-
+*{box-sizing:border-box}
 body{
 margin:0;
 font-family:Arial,sans-serif;
 background:linear-gradient(180deg,#001a4d,#003DA5,#6FA8FF);
-color:white;
+color:#fff;
 text-align:center;
 overflow-x:hidden;
 }
-
-.container{
-padding:20px;
-}
-
+.container{padding:20px}
 .card-fc{
 position:relative;
-width:90%;
-max-width:320px;
-height:480px;
+width:92%;
+max-width:340px;
+height:500px;
 margin:20px auto;
-border-radius:22px;
+border-radius:24px;
 overflow:hidden;
-box-shadow:0 0 25px rgba(111,168,255,.45);
+box-shadow:0 0 35px rgba(111,168,255,.55);
+animation:floatCard 4s ease-in-out infinite;
 }
-
+@keyframes floatCard{
+50%{transform:translateY(-6px)}
+}
 .card-bg{
-position:absolute;
-width:100%;
-height:100%;
-background:
-linear-gradient(135deg,#003DA5,#FFFFFF);
-z-index:1;
+position:absolute;inset:0;
+background:linear-gradient(135deg,#003DA5,#ffffff);
 }
-
 .card-bg:after{
 content:"";
 position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
-background:
-linear-gradient(
-120deg,
-transparent 20%,
-rgba(255,255,255,.20) 40%,
-transparent 60%);
+top:-50%;left:-50%;
+width:200%;height:200%;
+background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.25) 40%,transparent 60%);
 animation:shine 6s linear infinite;
 }
-
 @keyframes shine{
-0%{transform:translateX(-100%) rotate(15deg);}
-100%{transform:translateX(100%) rotate(15deg);}
+from{transform:translateX(-100%) rotate(15deg)}
+to{transform:translateX(100%) rotate(15deg)}
 }
-
 .card-player{
 position:absolute;
-bottom:70px;
+bottom:75px;
 left:50%;
 transform:translateX(-50%);
 width:85%;
-max-height:320px;
+max-height:330px;
 object-fit:contain;
 z-index:2;
 }
-
 .card-info{
 position:absolute;
 bottom:0;
 width:100%;
 padding:15px;
-background:linear-gradient(180deg,transparent,rgba(0,0,0,.88));
+background:linear-gradient(180deg,transparent,rgba(0,0,0,.9));
 z-index:3;
 }
-
-.card-name{
-font-size:26px;
-font-weight:bold;
-}
-
-.card-details{
-display:flex;
-justify-content:center;
-gap:15px;
-margin-top:5px;
-}
-
+.card-name{font-size:28px;font-weight:bold}
+.card-details{display:flex;justify-content:center;gap:10px;margin-top:8px}
 .card-details span{
-background:rgba(0,0,0,.55);
-padding:5px 12px;
+background:rgba(0,0,0,.5);
+padding:6px 12px;
 border-radius:8px;
 }
-
-.player-box{
+.player-box,.champion-box{
 width:92%;
 max-width:420px;
 margin:25px auto;
-padding:20px;
+padding:22px;
 border-radius:22px;
 background:linear-gradient(180deg,rgba(10,10,10,.92),rgba(0,40,120,.92));
+box-shadow:0 0 18px rgba(0,0,0,.25);
 }
-
-.player-title{
-font-size:28px;
-font-weight:bold;
-margin-bottom:15px;
-color:#FFFFFF;
+.champion-box{
+background:linear-gradient(135deg,#9b6b00,#e7c55c,#9b6b00);
+color:#111;
 }
-
-.btn-premium,
-.btn{
+.player-title{font-size:28px;font-weight:bold;margin-bottom:15px}
+.btn-premium,.btn{
 display:block;
 width:90%;
 max-width:350px;
@@ -125,218 +95,139 @@ padding:16px;
 border-radius:18px;
 text-decoration:none;
 font-weight:bold;
+position:relative;
+overflow:hidden;
+transition:.3s;
 }
-
 .btn-premium{
-color:white;
 background:linear-gradient(135deg,#002A70,#003DA5,#6FA8FF);
+color:white;
+box-shadow:0 0 18px rgba(111,168,255,.35);
 }
-
+.btn-premium:hover{
+transform:translateY(-3px) scale(1.02);
+box-shadow:0 0 25px rgba(255,255,255,.4);
+}
+.btn-premium:before{
+content:"";
+position:absolute;
+top:0;left:-120%;
+width:60%;height:100%;
+background:rgba(255,255,255,.25);
+transform:skewX(-25deg);
+animation:btnshine 4s infinite;
+}
+@keyframes btnshine{
+to{left:160%}
+}
 .btn{
-background:linear-gradient(135deg,#003DA5,#FFFFFF);
+background:linear-gradient(135deg,#003DA5,#ffffff);
 color:#111;
 }
-
 .separador{
 height:8px;
 margin:28px 0;
 border-radius:4px;
 background:linear-gradient(90deg,#003DA5,#FFFFFF,#003DA5);
 }
-
+.small{font-size:15px;line-height:1.5}
 </style>
 </head>
-
 <body>
-
 <div class="container">
 
 <div class="card-fc">
-
 <div class="card-bg"></div>
-
-<img id="player-img"
-class="card-player"
-src="sepulveda.jpg">
-
+<img id="player-img" class="card-player" src="rotondi.jpg" alt="Jugador">
 <div class="card-info">
-
-<div id="card-name"
-class="card-name">
-
-Ángel Sepúlveda
-
-</div>
-
+<div id="card-name" class="card-name">Carlos Rodolfo Rotondi</div>
 <div class="card-details">
-
-<span>CAZ</span>
-<span>🚂</span>
-
+<span>CAZ</span><span>🚂 La Máquina</span>
 </div>
-
 </div>
-
 </div>
 
 <div class="player-box">
+<div id="premium-title" class="player-title">✨ Carlos Rodolfo Rotondi Edition</div>
 
-<div id="premium-title"
-class="player-title">
-
-✨ Ángel Sepúlveda Edition
-
+<a id="btn-instagram" class="btn-premium" href="#" target="_blank">📸 Instagram Oficial</a>
+<a id="btn-highlights" class="btn-premium" href="#" target="_blank">🎥 Highlights</a>
+<a id="btn-stats" class="btn-premium" href="#" target="_blank">📊 Estadísticas</a>
+<a id="btn-titulos" class="btn-premium" href="#" target="_blank">🏆 Títulos</a>
 </div>
 
-<a id="btn-instagram"
-class="btn-premium"
-href="#"
-target="_blank">
-
-📸 Instagram Oficial
-
-</a>
-
-<a id="btn-highlights"
-class="btn-premium"
-href="#"
-target="_blank">
-
-🎥 Highlights
-
-</a>
-
-<a id="btn-stats"
-class="btn-premium"
-href="#"
-target="_blank">
-
-📊 Estadísticas
-
-</a>
-
-<a id="btn-titulos"
-class="btn-premium"
-href="#"
-target="_blank">
-
-🏆 Títulos
-
-</a>
-
+<div class="champion-box">
+<h2 id="championship-title">🏆 Campeón Clausura 2026</h2>
+<p id="championship-text" class="small"></p>
 </div>
 
 <div class="separador"></div>
 
-<a class="btn"
-href="https://cfcruzazul.com/"
-target="_blank">
-
-🌐 Sitio Oficial Cruz Azul
-
-</a>
-
-<a class="btn"
-href="https://www.youtube.com/@CruzAzul"
-target="_blank">
-
-▶️ YouTube Oficial
-
-</a>
-
-<a class="btn"
-href="https://www.instagram.com/cruzazul/"
-target="_blank">
-
-📸 Instagram Oficial
-
-</a>
-
-<a class="btn"
-href="https://www.google.com/search?q=cruz+azul+proximo+partido"
-target="_blank">
-
-📅 Próximo Partido
-
-</a>
+<a class="btn" href="https://cfcruzazul.com/" target="_blank">🌐 Sitio Oficial Cruz Azul</a>
+<a class="btn" href="https://www.youtube.com/@CruzAzul" target="_blank">▶️ YouTube Oficial</a>
+<a class="btn" href="https://www.instagram.com/cruzazul/" target="_blank">📸 Instagram Oficial</a>
+<a class="btn" href="https://www.google.com/search?q=cruz+azul+proximo+partido" target="_blank">📅 Próximo Partido</a>
 
 <div class="separador"></div>
 
-<a class="btn"
-href="https://www.google.com/search?q=cruz+azul+calendario"
-target="_blank">
-
-🗓️ Calendario
-
-</a>
-
-<a class="btn"
-href="https://www.google.com/search?q=tabla+liga+mx"
-target="_blank">
-
-📊 Liga MX
-
-</a>
-
-<a class="btn"
-href="https://www.google.com/search?q=palmares+cruz+azul"
-target="_blank">
-
-🏆 Palmarés
-
-</a>
-
-<a class="btn"
-href="https://www.google.com/search?q=cruz+azul+camino+liga+mx"
-target="_blank">
-
-🚂 La Máquina
-
-</a>
+<a class="btn" href="https://www.google.com/search?q=cruz+azul+calendario" target="_blank">🗓️ Calendario</a>
+<a class="btn" href="https://www.google.com/search?q=tabla+liga+mx" target="_blank">📊 Liga MX</a>
+<a class="btn" href="https://www.google.com/search?q=palmares+cruz+azul" target="_blank">🏆 Palmarés</a>
+<a class="btn" href="https://www.google.com/search?q=cruz+azul+camino+liga+mx" target="_blank">🚂 La Máquina</a>
 
 </div>
 
 <script>
+const championshipTitle = "🏆 Campeón Clausura 2026";
 
 const players = {
-
-    palavecino: {
-        name: "Agustín Palavecino",
-        image: "palavecino.jpg",
-        instagram: "https://www.instagram.com/agusspalavecino/?hl=es",
-        highlights: "https://www.youtube.com/results?search_query=palavecino+cruz+azul",
-        stats: "https://www.google.com/search?q=palavecino+estadisticas",
-        titles: "https://www.google.com/search?q=palavecino+titulos"
-    },
-
-    rotondi: {
-        name: "Carlos Rodolfo Rotondi",
-        image: "rotondi.jpg",
-        instagram: "https://www.instagram.com/rodorotondi/?hl=es",
-        highlights: "https://www.youtube.com/results?search_query=rotondi+cruz+azul",
-        stats: "https://www.google.com/search?q=rotondi+estadisticas",
-        titles: "https://www.google.com/search?q=rotondi+titulos"
-    }
-
+rotondi:{
+name:"Carlos Rodolfo Rotondi",
+image:"rotondi.jpg",
+instagram:"https://www.instagram.com/rodorotondi/?hl=es",
+highlights:"https://www.youtube.com/results?search_query=rotondi+cruz+azul",
+stats:"https://www.google.com/search?q=rotondi+estadisticas",
+titles:"https://www.google.com/search?q=rotondi+titulos",
+championshipText:"Carlos Rodolfo Rotondi formó parte del plantel campeón que llevó a La Máquina a conquistar el Clausura 2026."
+},
+palavecino:{
+name:"Agustín Palavecino",
+image:"palavecino.jpg",
+instagram:"https://www.instagram.com/agusspalavecino/?hl=es",
+highlights:"https://www.youtube.com/results?search_query=palavecino+cruz+azul",
+stats:"https://www.google.com/search?q=palavecino+estadisticas",
+titles:"https://www.google.com/search?q=palavecino+titulos",
+championshipText:"Agustín Palavecino formó parte del plantel campeón que llevó a La Máquina a conquistar el Clausura 2026."
+},
+sepulveda:{
+name:"Ángel Sepúlveda",
+image:"sepulveda.jpg",
+instagram:"#",
+highlights:"https://www.youtube.com/results?search_query=angel+sepulveda+cruz+azul",
+stats:"https://www.google.com/search?q=angel+sepulveda+estadisticas",
+titles:"https://www.google.com/search?q=angel+sepulveda+titulos",
+championshipText:"Ángel Sepúlveda formó parte del plantel campeón que llevó a La Máquina a conquistar el Clausura 2026."
+}
 };
 
-const params = new URLSearchParams(window.location.search);
+const params=new URLSearchParams(window.location.search);
+const playerKey=(params.get("player")||"rotondi").toLowerCase();
+const player=players[playerKey]||players.rotondi;
 
-const playerKey = (params.get("player") || "").toLowerCase();
+document.title=player.name+" NFC | Cruz Azul";
 
-const player = players[playerKey] || players["palavecino"];
+document.getElementById("player-img").src=player.image;
+document.getElementById("player-img").onerror=function(){this.src='rotondi.jpg'};
 
-document.getElementById("player-img").src = player.image;
-document.getElementById("card-name").innerText = player.name;
-document.getElementById("premium-title").innerText =
-    "✨ " + player.name + " Edition";
+document.getElementById("card-name").innerText=player.name;
+document.getElementById("premium-title").innerText="✨ "+player.name+" Edition";
+document.getElementById("championship-title").innerText=championshipTitle;
+document.getElementById("championship-text").innerText=player.championshipText;
 
-document.getElementById("btn-instagram").href = player.instagram;
-document.getElementById("btn-highlights").href = player.highlights;
-document.getElementById("btn-stats").href = player.stats;
-document.getElementById("btn-titulos").href = player.titles;
-
+document.getElementById("btn-instagram").href=player.instagram;
+document.getElementById("btn-highlights").href=player.highlights;
+document.getElementById("btn-stats").href=player.stats;
+document.getElementById("btn-titulos").href=player.titles;
 </script>
-
 </body>
 </html>
